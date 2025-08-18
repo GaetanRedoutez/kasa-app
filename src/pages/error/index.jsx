@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 
 /**
@@ -10,14 +11,14 @@ import { Link } from "react-router-dom";
  * @returns {JSX.Element} The rendered error page.
  */
 export const Error = () => {
+  const { t } = useTranslation();
+
   return (
     <div className="errorPage">
       <h2 className="errorPage__h2">404</h2>
-      <p className="errorPage__text">
-        Oups! La page que vous demandez n'existe pas.
-      </p>
+      <p className="errorPage__text">{t("error")} </p>
       <Link to="/" className="errorPage__Link">
-        Retourner sur la page d’accueil
+        {t("errorLink")}
       </Link>
     </div>
   );
