@@ -1,4 +1,5 @@
 import { useTranslation } from "react-i18next";
+import Cards from "../../components/Home/Cards";
 import Image from "/home.jpg";
 
 /**
@@ -23,6 +24,8 @@ export const Home = () => {
           {t("subtitle")}
         </h2>
       </div>
+
+      <Cards />
     </div>
   );
 };
