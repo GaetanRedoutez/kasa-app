@@ -6,6 +6,7 @@ export const translations = {
     errorLink: "Retourner sur la page d’accueil",
     home: "Accueil",
     about: "A propos",
+    copyright: "Tous droits réservés",
   },
   en: {
     title: "At your home, ",
@@ -14,5 +15,6 @@ export const translations = {
     errorLink: "Back to homepage",
     home: "Home",
     about: "About",
+    copyright: "All rights reserved",
   },
 };
