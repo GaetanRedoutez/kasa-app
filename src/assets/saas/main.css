@@ -381,13 +381,16 @@ ul {
   }
 }
 .header__nav-Link {
-  color: #ff6060;
+  color: #000000;
   text-decoration: none;
   font-weight: 500;
   font-size: 24px;
   padding-left: 57px;
 }
 .header__nav-Link:hover {
+  text-decoration: underline;
+}
+.header__nav-Link:focus {
   text-decoration: underline;
 }
 @media (max-width: 768px) {

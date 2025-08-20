@@ -18,12 +18,15 @@
   }
   &__nav {
     &-Link {
-      color: abs.$primary-color;
+      color: abs.$black;
       text-decoration: none;
       font-weight: 500;
       font-size: 24px;
       padding-left: 57px;
       &:hover {
+        text-decoration: underline;
+      }
+      &:focus {
         text-decoration: underline;
       }
 
