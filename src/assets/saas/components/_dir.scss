@@ -1,6 +1,6 @@
-@import "./cards";
-@import "./overlay-title";
-@import "./tags";
-@import "./rating";
-@import "./slider";
-@import "./dropdown";
+@forward "./cards";
+@forward "./overlay-title";
+@forward "./tags";
+@forward "./rating";
+@forward "./slider";
+@forward "./dropdown";

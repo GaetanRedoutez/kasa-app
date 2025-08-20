@@ -1,21 +1,23 @@
+@use "../abstracts/dir" as abs;
+
 .dropdown {
   width: 100%;
   margin-top: 0px;
 
   &__btn {
-    @include flex-row();
+    @include abs.flex-row();
     font-size: 18px;
     padding: 0 15px;
     justify-content: space-between;
     align-items: center;
     width: 100%;
     height: 52px;
-    background-color: $primary-color;
-    color: $white;
+    background-color: abs.$primary-color;
+    color: abs.$white;
     font-weight: 500;
     border: none;
     border-radius: 10px;
-    @include respond-to("small") {
+    @include abs.respond-to("small") {
       height: 30px;
       font-size: 13px;
     }
@@ -24,7 +26,7 @@
   &__content-wrapper {
     padding-top: 10px;
     padding-bottom: 10px;
-    @include respond-to("small") {
+    @include abs.respond-to("small") {
       padding-top: 5px;
       padding-bottom: 5px;
     }
@@ -35,12 +37,12 @@
     padding: 0 20px;
     font-size: 18px;
     line-height: 26px;
-    color: $primary-color;
-    background-color: $light-grey;
+    color: abs.$primary-color;
+    background-color: abs.$light-grey;
     text-align: left;
     overflow: hidden;
     transition: height 0.4s ease;
-    @include respond-to("small") {
+    @include abs.respond-to("small") {
       font-size: 13px;
       line-height: 18px;
     }
@@ -60,9 +62,9 @@
 .toWhite {
   transition: opacity 0.5s ease-in-out;
   opacity: 0;
-  background-color: $light-grey;
+  background-color: abs.$light-grey;
 }
 
 .light-grey {
-  background-color: $light-grey;
+  background-color: abs.$light-grey;
 }
