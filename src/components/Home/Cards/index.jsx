@@ -1,7 +1,7 @@
+import { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import { fetchRentals } from "../../../api/service";
-import { useEffect, useState } from "react";
-import i18next from "i18next";
 /**
  * Component to render rental cards on the homepage.
  * Each card represents a rental item with a title and a cover image.
@@ -10,22 +10,22 @@ import i18next from "i18next";
  */
 function Cards() {
   const [rentals, setRentals] = useState([]);
-  const lang = i18next.language;
-  console.log(lang);
+  const { i18n } = useTranslation();
+
   useEffect(() => {
     async function fetchRentalsData() {
-      const rentalsData = await fetchRentals(lang);
+      const rentalsData = await fetchRentals(i18n.language);
       setRentals(rentalsData);
     }
     fetchRentalsData();
-  }, [lang]);
+  }, [i18n.language]);
 
   return (
     <section className="cards">
       {rentals.map((rental, i) => (
         <Link
           to={`/rental/${rental.id}`}
-          key={rental.id + lang + i}
+          key={rental.id + i18n.language + i}
           className="cards__Link"
           style={{ backgroundImage: `url(${rental.cover})` }}
         >

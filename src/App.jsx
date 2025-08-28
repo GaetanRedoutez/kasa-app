@@ -5,6 +5,7 @@ import { Header } from "./components/Header";
 import { About } from "./pages/about";
 import { Error } from "./pages/error";
 import { Home } from "./pages/home";
+import { Rental } from "./pages/rental";
 
 const Layout = () => {
   return (
@@ -24,24 +25,11 @@ const router = createBrowserRouter([
     path: "/",
     errorElement: <Error />,
     children: [
-      {
-        index: true,
-        path: "/",
-        element: <Home />,
-      },
-      {
-        index: true,
-        path: "/home",
-        element: <Home />,
-      },
-      {
-        path: "/about",
-        element: <About />,
-      },
-      {
-        path: "*",
-        element: <Error />,
-      },
+      { index: true, element: <Home /> },
+      { path: "home", element: <Home /> },
+      { path: "about", element: <About /> },
+      { path: "rental/:id", element: <Rental /> },
+      { path: "*", element: <Error /> },
     ],
   },
 ]);
