@@ -1,6 +1,8 @@
+import { useTranslation } from "react-i18next";
 import DropDown from "../Dropdown";
 import emptyStar from "/emptyStar.svg";
 import filledStar from "/filledStar.svg";
+import { Slider } from "../Slider";
 
 /**
  * RentalContent component displays detailed information about a rental property,
@@ -22,6 +24,7 @@ import filledStar from "/filledStar.svg";
  * @returns {JSX.Element} The rendered RentalContent component.
  */
 export const RentalContent = ({ rental }) => {
+  const { t } = useTranslation();
   const initialRating = new Array(5).fill(null);
   const ratingNumber = +rental.rating;
   const starArray = initialRating.map((_, index) =>
@@ -30,6 +33,7 @@ export const RentalContent = ({ rental }) => {
 
   return (
     <>
+      <Slider selectedRental={rental} componentClassName={"rental__carousel"} />
       <div className="rental__info">
         <div className="rental__info--text">
           <h2 className="rental__info--text-title">{rental.title}</h2>
@@ -71,12 +75,12 @@ export const RentalContent = ({ rental }) => {
       </div>
       <div className="rental__dropdown">
         <DropDown
-          name="Description"
+          name={t("description")}
           componentClassName="rental__dropdown-description"
           items={rental.description}
         />
         <DropDown
-          name="Equipements"
+          name={t("equipments")}
           componentClassName="rental__dropdown-equipments"
           items={rental.equipments}
         />

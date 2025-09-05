@@ -29,6 +29,8 @@ export const translations = {
       également des ateliers sur la sécurité domestique pour nos hôtes.
       `,
     },
+    description: "Description",
+    equipments: "Equipements",
   },
   en: {
     title: "At your home, ",
@@ -60,5 +62,7 @@ export const translations = {
       workshops on home safety for our hosts.
       `,
     },
+    description: "Description",
+    equipments: "Equipments",
   },
 };

@@ -10,12 +10,6 @@ export const fetchRentals = async (lang) => {
 export const fetchRentalById = async (id, lang) => {
   const rentals = await fetchRentals(lang);
 
-  const idExist = rentals.some((rental) => rental.id === id);
-
-  if (!idExist) {
-    return "ID not found";
-  }
-
   const data = rentals.find((rental) => rental.id === id);
   return data;
 };
