@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { useParams } from "react-router-dom";
+import { Navigate, useParams } from "react-router-dom";
 import { fetchRentalById } from "../../api/service";
 import { RentalContent } from "../../components/RentalContent";
 
@@ -19,16 +19,23 @@ export const Rental = () => {
   const { i18n } = useTranslation();
 
   const [rental, setRental] = useState(null);
+  const [hasError, setHasError] = useState(false);
 
   useEffect(() => {
-    if (!id) return;
     async function fetchRentalData() {
-      const rentalsData = await fetchRentalById(id, i18n.language);
-      setRental(rentalsData);
+      try {
+        const rentalData = await fetchRentalById(id, i18n.language);
+        setRental(rentalData);
+      } catch (error) {
+        console.error(error);
+        setHasError(true);
+      }
     }
 
-    fetchRentalData();
+    if (id) fetchRentalData();
   }, [id, i18n.language]);
+
+  if (hasError || !id) return <Navigate to="/error" />;
 
   return (
     <div className="rental">{rental && <RentalContent rental={rental} />}</div>
