@@ -28,22 +28,29 @@ export const Header = () => {
         <img src={logo} alt="Logo Kasa" className="header__logo-img" />
       </div>
 
-      <nav className="header__nav">
+      <div className="header__navlang">
         <select
           value={i18n.language}
           onChange={handleLanguageChange}
           className="header__lang-select"
         >
-          <option value="fr">🇫🇷 FR</option>
-          <option value="en">🇬🇧 EN</option>
+          <option value="fr" className="header__lang-option">
+            🇫🇷 FR
+          </option>
+          <option value="en" className="header__lang-option">
+            🇬🇧 EN
+          </option>
         </select>
-        <Link to="/home" className="header__nav-Link">
-          {t("home")}
-        </Link>
-        <Link to="/about" className="header__nav-Link">
-          {t("about")}
-        </Link>
-      </nav>
+
+        <nav className="header__nav">
+          <Link to="/home" className="header__nav-Link">
+            {t("home")}
+          </Link>
+          <Link to="/about" className="header__nav-Link">
+            {t("about")}
+          </Link>
+        </nav>
+      </div>
     </header>
   );
 };

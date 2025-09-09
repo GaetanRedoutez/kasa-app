@@ -38,7 +38,24 @@
     }
   }
 
-  @include abs.respond-to("small") {
+  &__lang {
+    &-select {
+      border-radius: 15px;
+      padding: 5px;
+      @include abs.respond-to("small") {
+        max-width: fit-content;
+      }
+    }
+  }
+
+  &__navlang {
+    @include abs.flex-row();
+    @include abs.respond-to("small") {
+      @include abs.flex-col();
+      flex-direction: column-reverse;
+      align-items: flex-end;
+      gap: 2px;
+    }
   }
 }
 
