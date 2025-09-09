@@ -1,7 +1,4 @@
-import { useEffect, useState } from "react";
-import { useTranslation } from "react-i18next";
-import { Navigate, useParams } from "react-router-dom";
-import { fetchRentalById } from "../../api/service";
+import { useLoaderData } from "react-router-dom";
 import { RentalContent } from "../../components/RentalContent";
 
 /**
@@ -14,30 +11,12 @@ import { RentalContent } from "../../components/RentalContent";
  *
  * @returns {JSX.Element} The rendered rental page.
  */
+
 export const Rental = () => {
-  const { id } = useParams();
-  const { i18n } = useTranslation();
-
-  const [rental, setRental] = useState(null);
-  const [hasError, setHasError] = useState(false);
-
-  useEffect(() => {
-    async function fetchRentalData() {
-      try {
-        const rentalData = await fetchRentalById(id, i18n.language);
-        setRental(rentalData);
-      } catch (error) {
-        console.error(error);
-        setHasError(true);
-      }
-    }
-
-    if (id) fetchRentalData();
-  }, [id, i18n.language]);
-
-  if (hasError || !id) return <Navigate to="/error" />;
-
+  const rental = useLoaderData();
   return (
-    <div className="rental">{rental && <RentalContent rental={rental} />}</div>
+    <div className="rental">
+      <RentalContent rental={rental} />
+    </div>
   );
 };
