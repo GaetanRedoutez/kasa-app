@@ -1,14 +1,16 @@
+@use "../abstracts/dir" as abs;
+
 .header {
-  @include flex-row();
+  @include abs.flex-row();
   justify-content: space-between;
   align-items: center;
   padding: 40px 0;
   &__logo {
-    @include flex-row();
+    @include abs.flex-row();
     align-items: flex-end;
     width: max-content;
     &-img {
-      @include respond-to("small") {
+      @include abs.respond-to("small") {
         width: 145px;
         height: 46.88px;
       }
@@ -16,7 +18,7 @@
   }
   &__nav {
     &-Link {
-      color: $primary-color;
+      color: abs.$black;
       text-decoration: none;
       font-weight: 500;
       font-size: 24px;
@@ -24,8 +26,11 @@
       &:hover {
         text-decoration: underline;
       }
+      &:focus {
+        text-decoration: underline;
+      }
 
-      @include respond-to("small") {
+      @include abs.respond-to("small") {
         font-size: 12px;
         padding-left: 25px;
         text-transform: uppercase;
@@ -33,7 +38,24 @@
     }
   }
 
-  @include respond-to("small") {
+  &__lang {
+    &-select {
+      border-radius: 15px;
+      padding: 5px;
+      @include abs.respond-to("small") {
+        max-width: fit-content;
+      }
+    }
+  }
+
+  &__navlang {
+    @include abs.flex-row();
+    @include abs.respond-to("small") {
+      @include abs.flex-col();
+      flex-direction: column-reverse;
+      align-items: flex-end;
+      gap: 2px;
+    }
   }
 }
 

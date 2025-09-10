@@ -72,7 +72,6 @@ a {
 abbr[title] {
   border-bottom: none; /* 1 */
   text-decoration: underline; /* 2 */
-  -webkit-text-decoration: underline dotted;
   text-decoration: underline dotted; /* 2 */
 }
 
@@ -172,9 +171,9 @@ select {
  * Correct the inability to style clickable types in iOS and Safari.
  */
 button,
-[type="button"],
-[type="reset"],
-[type="submit"] {
+[type=button],
+[type=reset],
+[type=submit] {
   -webkit-appearance: button;
 }
 
@@ -182,9 +181,9 @@ button,
  * Remove the inner border and padding in Firefox.
  */
 button::-moz-focus-inner,
-[type="button"]::-moz-focus-inner,
-[type="reset"]::-moz-focus-inner,
-[type="submit"]::-moz-focus-inner {
+[type=button]::-moz-focus-inner,
+[type=reset]::-moz-focus-inner,
+[type=submit]::-moz-focus-inner {
   border-style: none;
   padding: 0;
 }
@@ -193,9 +192,9 @@ button::-moz-focus-inner,
  * Restore the focus styles unset by the previous rule.
  */
 button:-moz-focusring,
-[type="button"]:-moz-focusring,
-[type="reset"]:-moz-focusring,
-[type="submit"]:-moz-focusring {
+[type=button]:-moz-focusring,
+[type=reset]:-moz-focusring,
+[type=submit]:-moz-focusring {
   outline: 1px dotted ButtonText;
 }
 
@@ -239,8 +238,8 @@ textarea {
  * 1. Add the correct box sizing in IE 10.
  * 2. Remove the padding in IE 10.
  */
-[type="checkbox"],
-[type="radio"] {
+[type=checkbox],
+[type=radio] {
   box-sizing: border-box; /* 1 */
   padding: 0; /* 2 */
 }
@@ -248,8 +247,8 @@ textarea {
 /**
  * Correct the cursor style of increment and decrement buttons in Chrome.
  */
-[type="number"]::-webkit-inner-spin-button,
-[type="number"]::-webkit-outer-spin-button {
+[type=number]::-webkit-inner-spin-button,
+[type=number]::-webkit-outer-spin-button {
   height: auto;
 }
 
@@ -257,7 +256,7 @@ textarea {
  * 1. Correct the odd appearance in Chrome and Safari.
  * 2. Correct the outline style in Safari.
  */
-[type="search"] {
+[type=search] {
   -webkit-appearance: textfield; /* 1 */
   outline-offset: -2px; /* 2 */
 }
@@ -265,7 +264,7 @@ textarea {
 /**
  * Remove the inner padding in Chrome and Safari on macOS.
  */
-[type="search"]::-webkit-search-decoration {
+[type=search]::-webkit-search-decoration {
   -webkit-appearance: none;
 }
 
@@ -373,7 +372,6 @@ ul {
   display: flex;
   flex-direction: row;
   align-items: flex-end;
-  width: -moz-max-content;
   width: max-content;
 }
 @media (max-width: 768px) {
@@ -383,13 +381,16 @@ ul {
   }
 }
 .header__nav-Link {
-  color: #ff6060;
+  color: #000000;
   text-decoration: none;
   font-weight: 500;
   font-size: 24px;
   padding-left: 57px;
 }
 .header__nav-Link:hover {
+  text-decoration: underline;
+}
+.header__nav-Link:focus {
   text-decoration: underline;
 }
 @media (max-width: 768px) {
@@ -399,6 +400,29 @@ ul {
     text-transform: uppercase;
   }
 }
+.header__lang-select {
+  border-radius: 15px;
+  padding: 5px;
+}
+@media (max-width: 768px) {
+  .header__lang-select {
+    max-width: fit-content;
+  }
+}
+.header__navlang {
+  display: flex;
+  flex-direction: row;
+}
+@media (max-width: 768px) {
+  .header__navlang {
+    display: flex;
+    flex-direction: column;
+    flex-direction: column-reverse;
+    align-items: flex-end;
+    gap: 2px;
+  }
+}
+
 h1 {
   position: absolute;
   left: -9999px;
@@ -473,7 +497,7 @@ h1 {
   width: 100%;
   height: 100%;
   font-size: 18px;
-  font-weight: 500;
+  font-weight: 700;
   line-height: 26px;
   color: #ffffff;
   display: flex;
@@ -481,15 +505,10 @@ h1 {
   padding-left: 20px;
   padding-right: 40px;
   padding-bottom: 20px;
-  background: linear-gradient(
-    180deg,
-    rgba(255, 255, 255, 0) 0%,
-    rgba(0, 0, 0, 0.5) 100%
-  );
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.5) 100%);
 }
 .cards__Link-article-title:hover {
-  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px,
-    rgba(0, 0, 0, 0.22) 0px 15px 12px;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
   transition: 0.2s ease-in-out;
   cursor: pointer;
 }
@@ -541,7 +560,6 @@ h1 {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   place-items: center;
-  -moz-column-gap: 15px;
   column-gap: 15px;
 }
 @media (max-width: 768px) {
@@ -551,7 +569,6 @@ h1 {
 }
 .tagsList__tag {
   min-width: 95px;
-  width: -moz-fit-content;
   width: fit-content;
   height: 25px;
   border-radius: 10px;
@@ -559,7 +576,7 @@ h1 {
   font-size: 14px;
   font-weight: 500;
   line-height: 20px;
-  color: white;
+  color: #ffffff;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -603,7 +620,6 @@ h1 {
 .slider__picture {
   width: 100%;
   height: 415px;
-  -o-object-fit: cover;
   object-fit: cover;
   border-radius: 25px;
   z-index: 0;
@@ -627,8 +643,7 @@ h1 {
     height: 255px;
   }
 }
-.slider__arrow-prev,
-.slider__arrow-next {
+.slider__arrow-prev, .slider__arrow-next {
   position: absolute;
   z-index: 2;
   height: 100%;
@@ -638,8 +653,7 @@ h1 {
   padding: 0;
 }
 @media (max-width: 768px) {
-  .slider__arrow-prev-img,
-  .slider__arrow-next-img {
+  .slider__arrow-prev-img, .slider__arrow-next-img {
     width: 24px;
   }
 }
@@ -827,7 +841,6 @@ h1 {
   width: 80px;
   height: 80px;
   border-radius: 50%;
-  -o-object-fit: cover;
   object-fit: cover;
 }
 @media (max-width: 768px) {
@@ -840,7 +853,6 @@ h1 {
   display: flex;
   flex-direction: row;
   width: 100%;
-  -moz-column-gap: 10%;
   column-gap: 10%;
 }
 @media (max-width: 768px) {
@@ -872,13 +884,14 @@ h1 {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: space-evenly;
   color: #ff6060;
 }
 .errorPage__h2 {
   font-size: 288px;
   font-weight: 700;
   line-height: 411px;
-  margin: 50px;
+  margin: 0px;
 }
 @media (max-width: 768px) {
   .errorPage__h2 {
@@ -890,7 +903,7 @@ h1 {
   font-size: 36px;
   font-weight: 500;
   line-height: 51px;
-  margin: 50px;
+  margin: 0px;
 }
 @media (max-width: 768px) {
   .errorPage__text {
@@ -901,6 +914,8 @@ h1 {
 }
 .errorPage__Link {
   font-size: 18px;
+  margin: 50px;
+  color: #000;
   font-weight: 500;
   line-height: 26px;
   text-decoration: underline;
@@ -918,4 +933,6 @@ h1 {
 
 .hidden {
   visibility: hidden;
-} /*# sourceMappingURL=main.css.map */
+}
+
+/*# sourceMappingURL=main.css.map */

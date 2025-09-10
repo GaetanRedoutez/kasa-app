@@ -1,13 +1,15 @@
+@use "../abstracts/dir" as abs;
+
 .overlayTitle {
-  @include background-cover();
+  @include abs.background-cover();
   height: 220px;
   border-radius: 25px;
-  @include respond-to("small") {
+  @include abs.respond-to("small") {
     height: 110px;
   }
 
   &__h2 {
-    @include flex-row();
+    @include abs.flex-row();
     align-items: center;
     justify-content: center;
     color: white;
@@ -17,9 +19,9 @@
     height: 100%;
     margin: 0;
     border-radius: 25px;
-    background-color: rgba($black, 0.3);
+    background-color: rgba(abs.$black, 0.3);
 
-    @include respond-to("small") {
+    @include abs.respond-to("small") {
       font-size: 24px;
       font-weight: 500;
       justify-content: start;
@@ -30,7 +32,7 @@
 
 .smallBreak {
   display: none;
-  @include respond-to("small") {
+  @include abs.respond-to("small") {
     display: block;
   }
 }

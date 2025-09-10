@@ -1,4 +1,4 @@
-@import "./box-shadow";
-@import "./breakpoint";
-@import "./colors";
-@import "./size";
+@forward "./box-shadow";
+@forward "./breakpoint";
+@forward "./colors";
+@forward "./size";

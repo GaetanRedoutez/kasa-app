@@ -1,9 +1,11 @@
+@use "../abstracts/dir" as abs;
+
 .slider {
   width: 100%;
   height: 415px;
   position: relative;
   z-index: 0;
-  @include respond-to("small") {
+  @include abs.respond-to("small") {
     height: 255px;
   }
   &__picture {
@@ -12,7 +14,7 @@
     object-fit: cover;
     border-radius: 25px;
     z-index: 0;
-    @include respond-to("small") {
+    @include abs.respond-to("small") {
       height: 255px;
     }
   }
@@ -20,11 +22,11 @@
   &__arrow {
     width: 100%;
     height: 415px;
-    @include flex-row();
+    @include abs.flex-row();
     justify-content: space-between;
     position: absolute;
     top: 0;
-    @include respond-to("small") {
+    @include abs.respond-to("small") {
       height: 255px;
     }
     &-prev,
@@ -37,7 +39,7 @@
       cursor: pointer;
       padding: 0;
       &-img {
-        @include respond-to("small") {
+        @include abs.respond-to("small") {
           width: 24px;
         }
       }
@@ -63,7 +65,7 @@
     line-height: 26px;
     color: white;
     padding-bottom: 10px;
-    @include respond-to("small") {
+    @include abs.respond-to("small") {
       display: none;
     }
   }

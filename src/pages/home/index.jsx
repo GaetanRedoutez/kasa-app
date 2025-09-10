@@ -1,3 +1,5 @@
+import { useTranslation } from "react-i18next";
+import Cards from "../../components/Home/Cards";
 import Image from "/home.jpg";
 
 /**
@@ -7,16 +9,7 @@ import Image from "/home.jpg";
  * @returns {JSX.Element} The rendered Home component.
  */
 export const Home = () => {
-  const titleText1 = "Chez vous, ";
-  const titleText2 = "partout et ailleurs";
-  const title = (
-    <h2 className="overlayTitle__h2">
-      {titleText1}
-      <br className="smallBreak" />
-      {titleText2}
-    </h2>
-  );
-
+  const { t } = useTranslation();
   return (
     <div className="home">
       <div
@@ -25,8 +18,14 @@ export const Home = () => {
           backgroundImage: `url(${Image})`,
         }}
       >
-        {title}
+        <h2 className="overlayTitle__h2">
+          {t("title")}
+          <br className="smallBreak" />
+          {t("subtitle")}
+        </h2>
       </div>
+
+      <Cards />
     </div>
   );
 };
